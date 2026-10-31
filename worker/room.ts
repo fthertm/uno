@@ -29,7 +29,7 @@ import {
   timeoutTurn,
 } from '../shared/engine';
 import {
-  AVATAR_COUNT,
+  CODED_AVATAR_COUNT,
   applyRuleChange,
   canStart,
   cleanName,
@@ -258,7 +258,7 @@ export class Room extends DurableObject<Env> {
     const requestedAvatar = Number(url.searchParams.get('avatar'));
     const avatar = Number.isFinite(requestedAvatar)
       ? Math.abs(Math.trunc(requestedAvatar))
-      : cryptoRng.int(AVATAR_COUNT);
+      : cryptoRng.int(CODED_AVATAR_COUNT);
     const wantsToWatch = url.searchParams.get('spectate') === '1';
     const canSeat = state.phase === 'lobby' && state.players.length < MAX_PLAYERS;
     if (wantsToWatch || !canSeat) {
@@ -487,7 +487,7 @@ export class Room extends DurableObject<Env> {
       const player = seatPlayer(state, {
         id: crypto.randomUUID(),
         name: meta.name ?? randomNickname(cryptoRng),
-        avatar: meta.avatar ?? cryptoRng.int(AVATAR_COUNT),
+        avatar: meta.avatar ?? cryptoRng.int(CODED_AVATAR_COUNT),
       });
       const nextMeta = { ...meta, playerId: player.id, spectator: false };
       socket.serializeAttachment(nextMeta);
