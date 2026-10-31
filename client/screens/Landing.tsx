@@ -260,11 +260,38 @@ export function Landing({ onEnter, onPrepareRoom, notice }: LandingProps) {
           )}
         </div>
 
-        <p className="text-center text-xs text-chalk-faint">
-          Two to eight players. Add bots if you are short.
-        </p>
+        <footer className="space-y-3 text-center text-xs text-chalk-faint">
+          <p>Two to eight players.</p>
+          <p className="flex items-center justify-center gap-1.5">
+            <span>hosted with</span>
+            <Heart />
+            <span>by</span>
+            <a
+              href="https://fatihertem.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-chalk-dim underline decoration-edge underline-offset-4 transition hover:text-chalk hover:decoration-chalk"
+            >
+              faith
+            </a>
+          </p>
+        </footer>
       </div>
     </main>
+  );
+}
+
+/** A small drawn heart, in the red of the cards rather than the emoji font's. */
+function Heart() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-3.5 w-3.5 shrink-0 fill-uno-red"
+      role="img"
+      aria-label="love"
+    >
+      <path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 2.7 4.5 6.3 4.5c2.1 0 3.9 1.2 4.7 2.9.2.4.8.4 1 0 .8-1.700 2.600-2.900 4.700-2.900 3.600 0 5.400 3.800 3.900 7.200C19.500 16.400 12 21 12 21z" />
+    </svg>
   );
 }
 
