@@ -6,7 +6,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "unoonline",
+	"name": "uno",
 	"main": "worker/index.ts",
 	"compatibility_date": "2026-08-05",
 
