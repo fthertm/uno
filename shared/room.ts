@@ -44,9 +44,11 @@ export function randomNickname(rng: Rng): string {
   return `${adjective} ${noun}`;
 }
 
-const BOT_NAMES = ['Rex', 'Nova', 'Pixel', 'Cinder', 'Juno', 'Vega', 'Milo', 'Echo'];
+const BOT_NAMES = ['Mary', 'Brian', 'Lucas', 'Saffron', 'Boo', 'Molly', 'Zoe', 'Oliver'];
 
-export const AVATAR_COUNT = 12;
+export const CODED_AVATAR_COUNT = 9;
+export const PHOTO_AVATAR_COUNT = 3;
+export const AVATAR_COUNT = CODED_AVATAR_COUNT + PHOTO_AVATAR_COUNT;
 
 export function createRoomState(code: string, rules: Partial<RuleSet> = {}): RoomState {
   return {
@@ -136,9 +138,9 @@ export function makeBot(state: RoomState, level: BotLevel, rng: Rng): SeatReques
   const pool = available.length > 0 ? available : BOT_NAMES;
   const name = pool[rng.int(pool.length)];
   const takenAvatars = new Set(state.players.map((p) => p.avatar));
-  let avatar = rng.int(AVATAR_COUNT);
-  for (let i = 0; i < AVATAR_COUNT && takenAvatars.has(avatar); i++) {
-    avatar = (avatar + 1) % AVATAR_COUNT;
+  let avatar = rng.int(CODED_AVATAR_COUNT);
+  for (let i = 0; i < CODED_AVATAR_COUNT && takenAvatars.has(avatar); i++) {
+    avatar = (avatar + 1) % CODED_AVATAR_COUNT;
   }
   return { id: `bot-${name.toLowerCase()}-${state.players.length}`, name, avatar, isBot: true, botLevel: level };
 }
