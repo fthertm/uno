@@ -1,15 +1,4 @@
-/**
- * Where the app is mounted.
- *
- * The game lives at parebaik.com/uno, not at the root of the domain —
- * parebaik.com/* belongs to a different Worker. Every URL the project builds
- * goes through here: Vite's `base`, the Worker's routing, the client's fetch
- * and WebSocket calls, and the room links people paste to their friends.
- *
- * Set it to '' to serve from the root of a domain again; nothing else has to
- * change.
- */
-export const BASE_PATH = '';
+export const BASE_PATH: string = '';
 
 /** The same thing with the trailing slash Vite's `base` wants. */
 export const BASE_URL = `${BASE_PATH}/`;
