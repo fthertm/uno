@@ -19,8 +19,7 @@
 	 * The prefix itself lives in shared/base.ts.
 	 */
 	"routes": [
-		{ "pattern": "parebaik.com/uno", "zone_name": "parebaik.com" },
-		{ "pattern": "parebaik.com/uno/*", "zone_name": "parebaik.com" }
+  	{ "pattern": "uno.fatihertem.com", "custom_domain": true }
 	],
 
 	/**
@@ -28,7 +27,7 @@
 	 * and unoonline.davdiv.workers.dev is worth having when the domain is
 	 * being changed around. It redirects to /uno/ like everything else.
 	 */
-	"workers_dev": true,
+	"workers_dev": false,
 
 	/**
 	 * No `nodejs_compat` flag: the Worker, the Durable Object and the shared
