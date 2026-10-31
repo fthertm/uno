@@ -261,9 +261,8 @@ export function Landing({ onEnter, onPrepareRoom, notice }: LandingProps) {
         </div>
 
         <footer className="space-y-3 text-center text-xs text-chalk-faint">
-          <p>Two to eight players.</p>
           <p className="flex items-center justify-center gap-1.5">
-            <span>hosted with</span>
+            <span>Hosted with</span>
             <Heart />
             <span>by</span>
             <a
