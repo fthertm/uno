@@ -1,22 +1,27 @@
 /**
- * Twelve avatars, drawn in code.
+ * The avatars: twelve drawn in code, then the photo ones.
  *
- * Deliberately kept off the four game colours — a player's avatar should
- * never read as "the red player" when red is also a card colour. These are
- * muted and earthy so the cards stay the loudest thing on the table.
+ * The drawn ones are deliberately kept off the four game colours — a player's
+ * avatar should never read as "the red player" when red is also a card
+ * colour. These are muted and earthy so the cards stay the loudest thing on
+ * the table. Photo avatars sit after them in the index, and are only ever
+ * picked by hand: bots and nameless arrivals are given drawn ones.
  */
 
-import { AVATAR_COUNT } from '../../shared/room';
+import { AVATAR_COUNT, CODED_AVATAR_COUNT } from '../../shared/room';
+import bunbun1 from '../assets/avatars/bunbun1.webp';
+import bunbun2 from '../assets/avatars/bunbun2.webp';
+import bunbun3 from '../assets/avatars/bunbun3.webp';
+
+/** In index order, starting at `CODED_AVATAR_COUNT`. Keep in step with `PHOTO_AVATAR_COUNT`. */
+const PHOTOS = [bunbun1, bunbun2, bunbun3] as const;
 
 const FACES = [
   { skin: '#7fd1c1', back: '#12433c', shape: 'round', eyes: 'dot', extra: 'none' },
   { skin: '#f0a68c', back: '#4a2018', shape: 'square', eyes: 'wide', extra: 'none' },
   { skin: '#b8a4f0', back: '#2a1e4d', shape: 'round', eyes: 'dot', extra: 'none' },
-  { skin: '#e8c86a', back: '#463618', shape: 'square', eyes: 'dot', extra: 'none' },
   { skin: '#8fb8e8', back: '#17304d', shape: 'square', eyes: 'dot', extra: 'none' },
-  { skin: '#e58ba8', back: '#4a1c2c', shape: 'round', eyes: 'wide', extra: 'none' },
   { skin: '#9dd17f', back: '#22401a', shape: 'round', eyes: 'wide', extra: 'none' },
-  { skin: '#d9d2c4', back: '#3a352c', shape: 'square', eyes: 'wide', extra: 'none' },
   { skin: '#7fc4d1', back: '#123c45', shape: 'round', eyes: 'dot', extra: 'none' },
   { skin: '#f0b0d8', back: '#45204a', shape: 'square', eyes: 'wide', extra: 'none' },
   { skin: '#c4b489', back: '#3d3520', shape: 'round', eyes: 'dot', extra: 'none' },
@@ -106,7 +111,25 @@ export function Avatar({
   /** Draws a coloured ring, used to mark whose turn it is. */
   ring?: string;
 }) {
-  const face = FACES[((index % AVATAR_COUNT) + AVATAR_COUNT) % AVATAR_COUNT];
+  const slot = ((index % AVATAR_COUNT) + AVATAR_COUNT) % AVATAR_COUNT;
+
+  if (slot >= CODED_AVATAR_COUNT) {
+    return (
+      <img
+        src={PHOTOS[slot - CODED_AVATAR_COUNT]}
+        width={size}
+        height={size}
+        alt=""
+        aria-hidden="true"
+        draggable={false}
+        decoding="async"
+        className={`rounded-full object-cover ${className ?? ''}`}
+        style={ring ? { outline: `3px solid ${ring}`, outlineOffset: -3 } : undefined}
+      />
+    );
+  }
+
+  const face = FACES[slot];
   const ink = face.back;
 
   return (
