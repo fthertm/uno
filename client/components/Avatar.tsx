@@ -9,18 +9,18 @@
 import { AVATAR_COUNT } from '../../shared/room';
 
 const FACES = [
-  { skin: '#7fd1c1', back: '#12433c', shape: 'round', eyes: 'dot', extra: 'antenna' },
-  { skin: '#f0a68c', back: '#4a2018', shape: 'square', eyes: 'wide', extra: 'ears' },
-  { skin: '#b8a4f0', back: '#2a1e4d', shape: 'hex', eyes: 'visor', extra: 'none' },
-  { skin: '#e8c86a', back: '#463618', shape: 'round', eyes: 'sleepy', extra: 'horns' },
-  { skin: '#8fb8e8', back: '#17304d', shape: 'square', eyes: 'dot', extra: 'crest' },
+  { skin: '#7fd1c1', back: '#12433c', shape: 'round', eyes: 'dot', extra: 'none' },
+  { skin: '#f0a68c', back: '#4a2018', shape: 'square', eyes: 'wide', extra: 'none' },
+  { skin: '#b8a4f0', back: '#2a1e4d', shape: 'round', eyes: 'dot', extra: 'none' },
+  { skin: '#e8c86a', back: '#463618', shape: 'square', eyes: 'dot', extra: 'none' },
+  { skin: '#8fb8e8', back: '#17304d', shape: 'square', eyes: 'dot', extra: 'none' },
   { skin: '#e58ba8', back: '#4a1c2c', shape: 'round', eyes: 'wide', extra: 'none' },
-  { skin: '#9dd17f', back: '#22401a', shape: 'hex', eyes: 'dot', extra: 'ears' },
-  { skin: '#d9d2c4', back: '#3a352c', shape: 'round', eyes: 'visor', extra: 'antenna' },
-  { skin: '#7fc4d1', back: '#123c45', shape: 'square', eyes: 'sleepy', extra: 'none' },
-  { skin: '#f0b0d8', back: '#45204a', shape: 'hex', eyes: 'wide', extra: 'crest' },
-  { skin: '#c4b489', back: '#3d3520', shape: 'round', eyes: 'dot', extra: 'horns' },
-  { skin: '#a0a8c8', back: '#22273d', shape: 'square', eyes: 'sleepy', extra: 'ears' },
+  { skin: '#9dd17f', back: '#22401a', shape: 'round', eyes: 'wide', extra: 'none' },
+  { skin: '#d9d2c4', back: '#3a352c', shape: 'square', eyes: 'wide', extra: 'none' },
+  { skin: '#7fc4d1', back: '#123c45', shape: 'round', eyes: 'dot', extra: 'none' },
+  { skin: '#f0b0d8', back: '#45204a', shape: 'square', eyes: 'wide', extra: 'none' },
+  { skin: '#c4b489', back: '#3d3520', shape: 'round', eyes: 'dot', extra: 'none' },
+  { skin: '#a0a8c8', back: '#22273d', shape: 'square', eyes: 'dot', extra: 'none' },
 ] as const;
 
 function headPath(shape: (typeof FACES)[number]['shape']) {
