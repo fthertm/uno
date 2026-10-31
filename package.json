@@ -7,10 +7,6 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:worker": "vitest run -c vitest.workers.config.ts",
-    "test:all": "vitest run && vitest run -c vitest.workers.config.ts",
     "preview": "npm run build && vite preview",
     "deploy": "npm run build && wrangler deploy",
     "cf-typegen": "wrangler types"
