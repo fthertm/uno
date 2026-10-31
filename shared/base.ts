@@ -9,7 +9,7 @@
  * Set it to '' to serve from the root of a domain again; nothing else has to
  * change.
  */
-export const BASE_PATH = '/uno';
+export const BASE_PATH = '';
 
 /** The same thing with the trailing slash Vite's `base` wants. */
 export const BASE_URL = `${BASE_PATH}/`;
