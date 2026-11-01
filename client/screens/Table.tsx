@@ -225,10 +225,9 @@ export function Table({
 
   const playCard = useCallback(
     (cardId: string) => {
-      const declareUno = hand.length === 2;
-      act({ t: 'intent', intent: { type: 'PLAY_CARD', cardId, declareUno } });
+      act({ t: 'intent', intent: { type: 'PLAY_CARD', cardId } });
     },
-    [act, hand.length],
+    [act],
   );
 
   const refuse = useCallback((card: Card) => {
