@@ -1019,7 +1019,7 @@ export function legalMoves(s: RoomState, playerId: string): LegalMoves {
   if (s.uno) {
     if (s.uno.playerId === playerId) {
       moves.canCallUno = !s.uno.called;
-    } else if (!s.uno.accusers.includes(playerId)) {
+    } else if (!s.uno.called && !s.uno.accusers.includes(playerId)) {
       moves.catchTargetId = s.uno.playerId;
     }
   }
