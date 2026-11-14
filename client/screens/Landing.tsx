@@ -271,7 +271,7 @@ export function Landing({ onEnter, onPrepareRoom, notice }: LandingProps) {
               rel="noopener noreferrer"
               className="font-semibold text-chalk-dim underline decoration-edge underline-offset-4 transition hover:text-chalk hover:decoration-chalk"
             >
-              faith
+              fatih
             </a>
           </p>
         </footer>
