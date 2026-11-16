@@ -1,4 +1,4 @@
-export const BASE_PATH: string = '';
+export const BASE_PATH: string = '/uno';
 
 /** The same thing with the trailing slash Vite's `base` wants. */
 export const BASE_URL = `${BASE_PATH}/`;
